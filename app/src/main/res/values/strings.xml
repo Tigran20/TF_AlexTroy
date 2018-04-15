@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CurrencyAlexTroy</string>
+
+    <!--BottomNav-->
+    <string name="title_history">История</string>
+    <string name="title_exchange">Обмен</string>
+    <string name="title_analytics">Аналитика</string>
+</resources>
