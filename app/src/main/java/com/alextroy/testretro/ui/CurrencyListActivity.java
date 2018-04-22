@@ -69,7 +69,7 @@ public class CurrencyListActivity extends AppCompatActivity {
         App.getApi().getCurrency(KEY).enqueue(new Callback<Currency>() {
             @Override
             public void onResponse(Call<Currency> call, Response<Currency> response) {
-                Toast.makeText(CurrencyListActivity.this, "Success", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -93,9 +93,13 @@ public class CurrencyListActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(
                 menuItem -> {
                     switch (menuItem.getItemId()) {
-                        case R.id.history:
-                            Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+                        case R.id.main:
+                            Intent intent = new Intent(getApplicationContext(), CurrencyListActivity.class);
                             startActivity(intent);
+                            break;
+                        case R.id.history:
+                            Intent intent1 = new Intent(getApplicationContext(), HistoryActivity.class);
+                            startActivity(intent1);
                             break;
                         case R.id.exchange:
                             Intent intent2 = new Intent(getApplicationContext(), HistoryActivity.class);
@@ -110,6 +114,4 @@ public class CurrencyListActivity extends AppCompatActivity {
                     return true;
                 });
     }
-
-
 }

@@ -23,6 +23,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
     public CurrencyAdapter(Context context, List<Currency> currencies) {
         this.context = context;
         this.currencies = currencies;
+//        this.currencyItemClickListener = currencyItemClickListener;
     }
 
     @Override
@@ -36,6 +37,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.titleTextView.setText(currencies.get(position).getName());
         holder.favoritesImageView.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+
     }
 
     @Override
@@ -56,9 +58,11 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
 
             itemView.setOnClickListener(view -> {
                 Intent intent = new Intent(view.getContext(), CurrencyDetail.class);
+                intent.putExtra("currency_name", currencies.get(getAdapterPosition()).getName());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             });
+
         }
     }
 

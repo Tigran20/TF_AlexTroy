@@ -34,9 +34,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @Override
     public void onBindViewHolder(HistoryAdapter.ViewHolder holder, int position) {
         holder.firstCurrencyTextView.setText("USD");
-        holder.secondCurrencyTextView.setText("RUB");
-        holder.dateCurrencyTextView.setText("10.04.2018");
-        //        holder.dateCurrencyTextView.setText(currencies.get(position).getDate());
+        holder.secondCurrencyTextView.setText(currencies.get(position).getName());
+        holder.dateCurrencyTextView.setText("17.04.2018");
     }
 
     @Override

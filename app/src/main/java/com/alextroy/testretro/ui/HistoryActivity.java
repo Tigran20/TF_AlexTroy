@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.alextroy.testretro.R;
+import com.alextroy.testretro.adapter.CurrencyAdapter;
 import com.alextroy.testretro.adapter.HistoryAdapter;
 import com.alextroy.testretro.model.Currency;
 import com.alextroy.testretro.model.Rates;
@@ -58,6 +59,7 @@ public class HistoryActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(HistoryActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         performRequest();
     }
@@ -66,9 +68,8 @@ public class HistoryActivity extends AppCompatActivity {
         App.getApi().getCurrency(KEY).enqueue(new Callback<Currency>() {
             @Override
             public void onResponse(Call<Currency> call, Response<Currency> response) {
-
-                adapter = new HistoryAdapter(getApplicationContext(), rates.getCurrencyList());
-                Toast.makeText(HistoryActivity.this, "Success", Toast.LENGTH_SHORT).show();
+//                recyclerView.setAdapter(new HistoryAdapter(getApplicationContext(), response.body().getRates().getCurrencyList()));
+//                adapter.notifyDataSetChanged();
             }
 
             @Override
